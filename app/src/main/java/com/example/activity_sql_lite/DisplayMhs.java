@@ -16,7 +16,7 @@ public class DisplayMhs extends AppCompatActivity {
 
     int from_Where_I_Am_Coming = 0;
     private DBHelper mydb ;
-    EditText nomhs ;
+    EditText nimmhs ;
     EditText phone;
     EditText nama;
 
@@ -26,7 +26,7 @@ public class DisplayMhs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_mhs);
-        nomhs = (EditText) findViewById(R.id.editTextNim);
+        nimmhs = (EditText) findViewById(R.id.editTextNim);
         nama = (EditText) findViewById(R.id.editTextName);
         phone = (EditText) findViewById(R.id.editTextPhone);
 
@@ -52,9 +52,9 @@ public class DisplayMhs extends AppCompatActivity {
                 Button b = (Button) findViewById(R.id.button1);
                 b.setVisibility(View.INVISIBLE);
 
-                nomhs.setText((CharSequence) no);
-                nomhs.setFocusable(false);
-                nomhs.setClickable(false);
+                nimmhs.setText((CharSequence) no);
+                nimmhs.setFocusable(false);
+                nimmhs.setClickable(false);
 
                 nama.setText((CharSequence) nam);
                 nama.setFocusable(false);
@@ -83,13 +83,13 @@ public class DisplayMhs extends AppCompatActivity {
     }
 
     public void run (View view){
-        if (nomhs.getText().toString().equals("")||
+        if (nimmhs.getText().toString().equals("")||
             nama.getText().toString().equals("")||
             phone.getText().toString().equals("")){
             Toast.makeText(getApplicationContext(),
                     "Data Harus Diisi Semua !.",Toast.LENGTH_SHORT).show();
         } else {
-            mydb.insertContact(nomhs.getText().toString(),
+            mydb.insertContact(nimmhs.getText().toString(),
                     nama.getText().toString(),
                     phone.getText().toString());
             Toast.makeText(getApplicationContext(),
